@@ -9,44 +9,51 @@ namespace ImageStego
 {
     class Program
     {
-        public static string BinaryToString(string data)
+        struct Piksel
         {
-            List<Byte> byteList = new List<Byte>();
+            public int X, Y, Value, LastBit;
+            public int[] BinaryValue;
 
-            for (int i = 0; i < data.Length; i += 8)
+            public Piksel(int x, int y, int value)
             {
-                byteList.Add(Convert.ToByte(data.Substring(i, 8), 2));
+                X = x;
+                Y = y;
+                Value = value;
+                BinaryValue = Array.ConvertAll(Convert.ToString(value, 2).PadLeft(8, '0').ToCharArray(), w => (int)Char.GetNumericValue(w));
+                LastBit = BinaryValue[7];
             }
-            return Encoding.ASCII.GetString(byteList.ToArray());
+
+            public void WriteMessage(int i)
+            {
+                LastBit = i;
+                BinaryValue[7] = LastBit;
+                Value = 0;
+                for (int j = 0; j < 8; j++)
+                    Value += Convert.ToInt32(BinaryValue[j] * Math.Pow(2, 7 - j));
+            }
+        }
+
+        static int[] TurnMessageIntoBinary(string s)
+        {
+            int[] a = new int[s.Length * 8];
+
+
+            return a;
         }
 
         static void Main(string[] args)
         {
-            string filename = "lenna.bmp";
-            Bitmap bmp = new Bitmap(".\\cover-images\\" + filename);
+            //string filename = "lenna.bmp";
+            //Bitmap original_bmp = new Bitmap(".\\cover-images\\" + filename);
+            //int width = original_bmp.Width, height = original_bmp.Height;
+            //Piksel[,] pArr = new Piksel[width, height];
 
-            int w = bmp.Width;
-            int h = bmp.Height;
+            //for (int i = 0; i < width; i++) for (int j = 0; j < height; j++) pArr[i, j] = new Piksel(i, j, original_bmp.GetPixel(i, j).R);
+            
+            //Console.Write("Enter Message: ");
+            //string s = Console.ReadLine();
 
-            int[,] PixelValue = new int[w, h];
-            //int[,] Message = new int[w, h];
-            string Message = "";
-
-            for (int i = 0; i < w; i++)
-            {
-                for (int j = 0; j < h; j++)
-                {
-                    PixelValue[i, j] = bmp.GetPixel(i, j).R;
-                    if (i == 0)
-                        Message = string.Concat(Message, (PixelValue[i, j] % 2).ToString());
-                }
-            }
-
-            Message = Message.Substring(0, 64);
-
-            Console.WriteLine(BinaryToString(Message));
-
-            Console.WriteLine("Completed !");
+            //int[] message = TurnMessageIntoBinary(s);
 
             Console.ReadKey();
         }

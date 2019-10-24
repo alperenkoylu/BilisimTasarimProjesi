@@ -47,11 +47,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.gboxMessage = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.lblImageName = new System.Windows.Forms.Label();
+            this.pboxPreview = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer2)).BeginInit();
@@ -61,7 +62,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer8)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gboxMessage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxPreview)).BeginInit();
             this.SuspendLayout();
             // 
             // pbOriginal
@@ -85,6 +87,7 @@
             this.pbLayer1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLayer1.TabIndex = 2;
             this.pbLayer1.TabStop = false;
+            this.pbLayer1.Click += new System.EventHandler(this.pb_Click);
             // 
             // pbLayer2
             // 
@@ -95,6 +98,7 @@
             this.pbLayer2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLayer2.TabIndex = 3;
             this.pbLayer2.TabStop = false;
+            this.pbLayer2.Click += new System.EventHandler(this.pb_Click);
             // 
             // pbLayer3
             // 
@@ -105,6 +109,7 @@
             this.pbLayer3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLayer3.TabIndex = 4;
             this.pbLayer3.TabStop = false;
+            this.pbLayer3.Click += new System.EventHandler(this.pb_Click);
             // 
             // pbLayer4
             // 
@@ -115,6 +120,7 @@
             this.pbLayer4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLayer4.TabIndex = 5;
             this.pbLayer4.TabStop = false;
+            this.pbLayer4.Click += new System.EventHandler(this.pb_Click);
             // 
             // pbLayer5
             // 
@@ -125,6 +131,7 @@
             this.pbLayer5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLayer5.TabIndex = 6;
             this.pbLayer5.TabStop = false;
+            this.pbLayer5.Click += new System.EventHandler(this.pb_Click);
             // 
             // pbLayer6
             // 
@@ -135,6 +142,7 @@
             this.pbLayer6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLayer6.TabIndex = 7;
             this.pbLayer6.TabStop = false;
+            this.pbLayer6.Click += new System.EventHandler(this.pb_Click);
             // 
             // pbLayer7
             // 
@@ -145,6 +153,7 @@
             this.pbLayer7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLayer7.TabIndex = 8;
             this.pbLayer7.TabStop = false;
+            this.pbLayer7.Click += new System.EventHandler(this.pb_Click);
             // 
             // pbLayer8
             // 
@@ -155,6 +164,7 @@
             this.pbLayer8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLayer8.TabIndex = 9;
             this.pbLayer8.TabStop = false;
+            this.pbLayer8.Click += new System.EventHandler(this.pb_Click);
             // 
             // label1
             // 
@@ -237,35 +247,36 @@
             this.label9.Text = "Original Image";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // groupBox1
+            // gboxMessage
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 326);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(792, 245);
-            this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Message";
+            this.gboxMessage.Controls.Add(this.btnSave);
+            this.gboxMessage.Controls.Add(this.txtMessage);
+            this.gboxMessage.Location = new System.Drawing.Point(12, 326);
+            this.gboxMessage.Name = "gboxMessage";
+            this.gboxMessage.Size = new System.Drawing.Size(792, 198);
+            this.gboxMessage.TabIndex = 21;
+            this.gboxMessage.TabStop = false;
+            this.gboxMessage.Text = "Message";
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.Location = new System.Drawing.Point(664, 202);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 37);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Save Message";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(664, 19);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(122, 173);
+            this.btnSave.TabIndex = 21;
+            this.btnSave.Text = "Save Message";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // textBox1
+            // txtMessage
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(6, 19);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(780, 177);
-            this.textBox1.TabIndex = 20;
+            this.txtMessage.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMessage.Location = new System.Drawing.Point(6, 19);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMessage.Size = new System.Drawing.Size(652, 173);
+            this.txtMessage.TabIndex = 20;
             // 
             // openFileDialog
             // 
@@ -280,15 +291,25 @@
             this.lblImageName.TabIndex = 22;
             this.lblImageName.Text = "Image Name";
             this.lblImageName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblImageName.Visible = false;
+            // 
+            // pboxPreview
+            // 
+            this.pboxPreview.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pboxPreview.Location = new System.Drawing.Point(810, 12);
+            this.pboxPreview.Name = "pboxPreview";
+            this.pboxPreview.Size = new System.Drawing.Size(512, 512);
+            this.pboxPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxPreview.TabIndex = 23;
+            this.pboxPreview.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 582);
+            this.ClientSize = new System.Drawing.Size(1332, 536);
+            this.Controls.Add(this.pboxPreview);
             this.Controls.Add(this.lblImageName);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gboxMessage);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -312,6 +333,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Linear LSB Image Stegonagraphy";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pbOriginal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer1)).EndInit();
@@ -322,8 +344,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer8)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gboxMessage.ResumeLayout(false);
+            this.gboxMessage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxPreview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,11 +371,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox gboxMessage;
+        private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label lblImageName;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.PictureBox pboxPreview;
     }
 }
 
