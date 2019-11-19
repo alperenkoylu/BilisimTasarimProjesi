@@ -53,6 +53,7 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.lblImageName = new System.Windows.Forms.Label();
             this.pboxPreview = new System.Windows.Forms.PictureBox();
+            this.pboxStatic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbOriginal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer2)).BeginInit();
@@ -64,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLayer8)).BeginInit();
             this.gboxMessage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxPreview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxStatic)).BeginInit();
             this.SuspendLayout();
             // 
             // pbOriginal
@@ -302,11 +304,22 @@
             this.pboxPreview.TabIndex = 23;
             this.pboxPreview.TabStop = false;
             // 
+            // pboxStatic
+            // 
+            this.pboxStatic.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pboxStatic.Location = new System.Drawing.Point(1328, 12);
+            this.pboxStatic.Name = "pboxStatic";
+            this.pboxStatic.Size = new System.Drawing.Size(512, 512);
+            this.pboxStatic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxStatic.TabIndex = 24;
+            this.pboxStatic.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 536);
+            this.ClientSize = new System.Drawing.Size(1849, 536);
+            this.Controls.Add(this.pboxStatic);
             this.Controls.Add(this.pboxPreview);
             this.Controls.Add(this.lblImageName);
             this.Controls.Add(this.gboxMessage);
@@ -347,6 +360,7 @@
             this.gboxMessage.ResumeLayout(false);
             this.gboxMessage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxPreview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxStatic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -377,6 +391,7 @@
         private System.Windows.Forms.Label lblImageName;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox pboxPreview;
+        private System.Windows.Forms.PictureBox pboxStatic;
     }
 }
 

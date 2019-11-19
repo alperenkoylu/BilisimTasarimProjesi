@@ -17,7 +17,7 @@ namespace ImageSteganographyLinearLSB
         int[,] message;
         double[,] pixelvalue;
 
-        Bitmap original_bmp, stego_bmp, first_bmp, second_bmp, third_bmp, fourth_bmp, fifth_bmp, sixth_bmp, seventh_bmp, eighth_bmp;
+        Bitmap original_bmp, first_bmp, second_bmp, third_bmp, fourth_bmp, fifth_bmp, sixth_bmp, seventh_bmp, eighth_bmp;
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -74,15 +74,24 @@ namespace ImageSteganographyLinearLSB
         public static string BinaryToString(int[,] msg, int wi, int he)
         {
             string data = "";
-
+            string eomCheck = "";
+            int k = 0;
             for (int i = 0; i < wi; i++)
                 for (int j = 0; j < he; j++)
-                    if (i == 0)
-                        data = string.Concat(data, msg[i, j].ToString());
+                {
+                    if (k % 8 == 0)
+                    {
+                        if (eomCheck == "00111011") break;
+                        eomCheck = "";
+                    }
+                    data = string.Concat(data, msg[i, j].ToString());
+                    eomCheck = string.Concat(eomCheck, msg[i, j].ToString());
+                    k++;
+                }
 
             List<Byte> byteList = new List<Byte>();
 
-            for (int i = 0; i < data.Length; i += 8)
+            for (int i = 0; i < data.Length - 8; i += 8)
                 byteList.Add(Convert.ToByte(data.Substring(i, 8), 2));
 
             return Encoding.ASCII.GetString(byteList.ToArray());
@@ -163,6 +172,7 @@ namespace ImageSteganographyLinearLSB
                 pbLayer8.Image = eighth_bmp;
 
                 pboxPreview.Image = original_bmp;
+                pboxStatic.Image = original_bmp;
 
                 txtMessage.Text = BinaryToString(message, w, h);
             }
